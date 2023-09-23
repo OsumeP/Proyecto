@@ -1,6 +1,5 @@
 import cv2
 import os
-import imutils
 
 #Generamos una variable con el nombre de la persona para crear un directorio con ese nombre.
 personName = 'Juan David'
@@ -28,12 +27,12 @@ while capture.isOpened():
     #Guardamos en una variable el frame en escala de grises
     grayImg = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    #En esta variable vamos a guardar una lista de coordenadas que corresponden a la ubicación del rostro
+    # #En esta variable vamos a guardar una lista de coordenadas que corresponden a la ubicación del rostro
     faces = clasificadorFace.detectMultiScale(grayImg,
-                                              #ScaleFactor: Que tanto se reduce la imagen en la pirámide de imágenes.
-                                              1.05, 
-                                              #minNeighbors: Cantidad de rectangulo para que se capture un rostro
-                                              4)
+                                               #ScaleFactor: Que tanto se reduce la imagen en la pirámide de imágenes.
+                                               1.05, 
+                                               #minNeighbors: Cantidad de rectangulo para que se capture un rostro
+                                               4)
     #Si el usuario presiona ESC se cerrará la ventana del video en vivo.
     order = cv2.waitKey(1)
     if order == 27:
